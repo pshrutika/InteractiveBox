@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundle & Save</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .bundle-container {
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .bundle-option {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 5px;
+        }
+        .bundle-option.active {
+            border-color: green;
+        }
+        .dropdown-container {
+            display: none;
+            margin-top: 10px;
+        }
+        .add-to-cart {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bundle & Save</h2>
+    <div class="bundle-container">
+        <div class="bundle-option" onclick="toggleDropdown(1)">
+            <input type="radio" name="bundle" id="bundle1"> 1 Pair - DKK 195.00 (50% OFF)
+            <div class="dropdown-container" id="dropdown1">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>Blue</option></select></label>
+            </div>
+        </div>
+        <div class="bundle-option" onclick="toggleDropdown(2)">
+            <input type="radio" name="bundle" id="bundle2"> 2 Pairs - DKK 345.00 (40% OFF)
+            <div class="dropdown-container" id="dropdown2">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>Blue</option></select></label>
+            </div>
+        </div>
+        <div class="bundle-option" onclick="toggleDropdown(3)">
+            <input type="radio" name="bundle" id="bundle3"> 3 Pairs - DKK 528.00 (60% OFF)
+            <div class="dropdown-container" id="dropdown3">
+                <label>Size: <select><option>S</option><option>M</option><option>L</option></select></label>
+                <label>Colour: <select><option>Black</option><option>Blue</option></select></label>
+            </div>
+        </div>
+        <p>Free 2 Day Shipping | Total: <b>DKK 360.00</b></p>
+        <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+    <script>
+        function toggleDropdown(id) {
+            document.querySelectorAll('.bundle-option').forEach(option => {
+                option.classList.remove('active');
+                option.querySelector('.dropdown-container').style.display = 'none';
+            });
+            
+            const selectedOption = document.getElementById('dropdown' + id);
+            selectedOption.style.display = 'block';
+            selectedOption.parentElement.classList.add('active');
+        }
+    </script>
+</body>
+</html>
