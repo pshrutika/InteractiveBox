@@ -1,1 +1,1 @@
-# Interactivebox
+# InteractiveBox
